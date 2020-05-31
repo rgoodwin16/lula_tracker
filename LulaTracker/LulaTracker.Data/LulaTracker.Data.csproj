@@ -8,4 +8,8 @@
       <ProjectReference Include="..\LulaTracker.Core\LulaTracker.Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    </ItemGroup>
+
 </Project>
