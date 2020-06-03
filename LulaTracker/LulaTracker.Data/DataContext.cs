@@ -17,5 +17,6 @@ namespace LulaTracker.Data
         public DbSet<User> Users { get; set; }
 
         public DbSet<TicketComment> TicketComments { get; set; }
+        public DbSet<TicketAttachment> TicketAttachments { get; set; }
     }
 }
