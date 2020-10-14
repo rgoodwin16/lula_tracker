@@ -1,6 +1,6 @@
 using System.Linq;
 using LulaTracker.Core.Entities;
-using LulaTracker.Core.Interfaces.Repositories;
+using LulaTracker.Application.Interfaces.Repositories;
 
 namespace LulaTracker.Data.Repositories
 {
