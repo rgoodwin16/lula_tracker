@@ -1,6 +1,6 @@
 using LulaTracker.Core.Entities;
 
-namespace LulaTracker.Core.Interfaces.Repositories
+namespace LulaTracker.Application.Interfaces.Repositories
 {
     public interface ITicketCommentRepository
     {
