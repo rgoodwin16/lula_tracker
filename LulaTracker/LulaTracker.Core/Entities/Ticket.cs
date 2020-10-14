@@ -6,8 +6,8 @@ namespace LulaTracker.Core.Entities
 
         public Ticket()
         {
-            this.Attachments = new List<TicketAttachment>();
-            this.Comments = new List<TicketComment>();
+            Attachments = new List<TicketAttachment>();
+            Comments = new List<TicketComment>();
         }
 
         public int Id { get; set; }
@@ -18,8 +18,8 @@ namespace LulaTracker.Core.Entities
         public User Creator  { get; set; }
         public User AssignedDeveloper { get; set; }
 
-        public List<TicketAttachment> Attachments { get; set; }
-        public List<TicketComment> Comments { get; set; }
+        public List<TicketAttachment> Attachments { get; private set; }
+        public List<TicketComment> Comments { get; private set; }
 
     }
 }

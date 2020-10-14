@@ -7,8 +7,8 @@ namespace LulaTracker.Core.Entities
 
         public Project()
         {
-            this.AssignedUsers = new List<User>();
-            this.Tickets = new List<Ticket>();
+            AssignedUsers = new List<User>();
+            Tickets = new List<Ticket>();
         }
 
         public int Id { get; set; }
@@ -16,8 +16,8 @@ namespace LulaTracker.Core.Entities
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public List<User> AssignedUsers { get; set; }
-        public List<Ticket> Tickets { get; set; }
+        public List<User> AssignedUsers { get; private set; }
+        public List<Ticket> Tickets { get; private set; }
         
     }
 }
