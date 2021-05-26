@@ -16,11 +16,13 @@ namespace WebAPI.Controllers
         {
             _projectService = projectService;
         }
-        public async Task<IActionResult> Post(string name)
+
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] AddProjectRequest request)
         {
             try
             {
-                return Ok(await _projectService.CreateAsync(name));
+                return Ok(await _projectService.CreateAsync(request.Name));
             }
             catch (Exception ex)
             {
@@ -28,5 +30,10 @@ namespace WebAPI.Controllers
                return BadRequest(ex.Message);
             }
         }
+    }
+
+    public class AddProjectRequest
+    {
+        public string Name { get; set; }
     }
 }
