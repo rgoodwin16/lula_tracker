@@ -24,5 +24,15 @@ namespace Application.Services.Projects
                 Name = project.Name
             };
         }
+
+        public async Task DeleteAsync(int id)
+        {
+            await _projectRepository.DeleteAsync(id);
+        }
+
+        public async Task DeleteAsync(string guid)
+        {
+            await _projectRepository.DeleteAsync(guid);
+        }
     }
 }

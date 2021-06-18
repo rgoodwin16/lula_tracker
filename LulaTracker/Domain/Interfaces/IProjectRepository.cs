@@ -9,7 +9,7 @@ namespace Domain.Interfaces
          Task<Project> CreateAsync(string name);
          Task UpdateAsync(string name);
          Task DeleteAsync(int id);
-         Task DeleteAsync(Guid guid);
+         Task DeleteAsync(string guid);
          Task GetAysnc(Guid guid);
     }
 }

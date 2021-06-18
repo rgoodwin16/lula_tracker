@@ -30,6 +30,26 @@ namespace WebAPI.Controllers
                return BadRequest(ex.Message);
             }
         }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int? id, string guid)
+        {
+            try
+            {
+                if(id is not null)
+                    await _projectService.DeleteAsync((int) id);
+
+                if(!string.IsNullOrWhiteSpace(guid))
+                    await _projectService.DeleteAsync(guid);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                
+               return BadRequest(ex.Message);
+            }
+        }
     }
 
     public class AddProjectRequest

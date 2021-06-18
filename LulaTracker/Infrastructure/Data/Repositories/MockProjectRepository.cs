@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
 using Domain.Interfaces;
@@ -42,14 +43,14 @@ namespace Infrastructure.Data.Repositories
 
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+           await DeleteProject(id, "");
         }
 
-        public Task DeleteAsync(Guid guid)
+        public async Task DeleteAsync(string guid)
         {
-            throw new NotImplementedException();
+         await DeleteProject(null, guid);
         }
 
         public Task GetAysnc(Guid guid)
@@ -60,6 +61,21 @@ namespace Infrastructure.Data.Repositories
         public Task UpdateAsync(string name)
         {
             throw new NotImplementedException();
+        }
+
+        private async Task DeleteProject(int? id, string guid)
+        {
+            var existingProject = !string.IsNullOrWhiteSpace(guid) 
+              ? _projects.FirstOrDefault(p => p.Guid == Guid.Parse(guid))
+              : _projects.FirstOrDefault(p => p.Id == id);
+        
+            if(existingProject is  null) return;
+
+             _projects.Remove(existingProject);
+
+            var str = JsonConvert.SerializeObject(_projects);
+
+            await File.WriteAllTextAsync(@"Data/Projects.json", str);
         }
     }
 }
